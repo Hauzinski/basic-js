@@ -38,11 +38,14 @@ export default function repeater(str, options) {
     opt.additionSeparator = "|";
   }
 
-  for (let i = 0; i < opt.additionRepeatTimes; i++) {
-    additionString.push(String(opt.addition));
-  }
-  for (let j = 0; j < opt.repeatTimes; j++) {
-    string.push(`${str}${additionString.join(opt.additionSeparator)}`);
-  }
-  return string.join(opt.separator);
+  // for (let i = 0; i < opt.additionRepeatTimes; i++) {
+  //   additionString.push(String(opt.addition));
+  // }
+  // for (let j = 0; j < opt.repeatTimes; j++) {
+  //   string.push(`${str}${additionString.join(opt.additionSeparator)}`);
+  // }
+  // return string.join(opt.separator);
+  
+  const string1 = new Array(opt.additionRepeatTimes).fill(String(options.addition)).join(opt.additionSeparator);
+  return new Array(opt.repeatTimes).fill(str + string1).join(opt.separator);
 }
